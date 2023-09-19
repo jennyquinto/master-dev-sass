@@ -1,0 +1,129 @@
+@use "resets";
+@use "colors" as c;
+@use "typography" as t;
+@use "mixings" as m;
+
+body {
+    font-family: t.$font-family;
+    width: min(1440px, 100%);
+    padding: 3rem;
+    margin: 0 auto;
+
+    .primary-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding-block: 2rem;
+
+        &-logo {
+            font-weight: bold;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        &-nav {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+
+            li a {
+                text-decoration: none;
+                color: c.$color-black;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .hero-section {
+        @extend .primary-header;
+        justify-content: space-between;
+
+        &__content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+
+            h1 {
+                @include m.subtitle;
+                width: 11ch;
+                position: relative;
+
+                @include m.heading-bg(-5px, 7.5ch, 40px);
+            }
+
+            p {
+                color: c.$color-primary;
+                line-height: 2;
+                width: 90%;
+            }
+
+            &--buttons {
+                display: flex;
+                gap: 1.5rem;
+
+                &>* {
+                    @include m.btn;
+                }
+            }
+        }
+    }
+
+
+    .cards-section {
+        @extend .primary-header-nav;
+        gap: 2rem;
+
+        li {
+            @extend .hero-section__content;
+            padding-bottom: 4rem;
+            background-color: c.$bg-secondary;
+            width: 28rem;
+
+            p:first-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include m.shadow;
+                border: 2px solid c.$color-black;
+            }
+
+            p:last-of-type {
+                color: c.$color-black;
+            }
+
+            &>*:not(:first-child) {
+                padding-left: 1rem;
+            }
+
+            h3 {
+                position: relative;
+                z-index: 1;
+                @include m.heading-bg(1rem, 1.2rem, .7rem);
+            }
+        }
+
+    }
+
+    footer {
+        @extend .primary-header;
+        p {
+            font-size: small;
+        }
+        ul {
+            @extend .primary-header-nav;
+
+            li a {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                @include m.shadow;
+
+                img {
+                    width: 20px;
+                    aspect-ratio: 1 / 1;
+                }
+            }
+        }
+    }
+}
