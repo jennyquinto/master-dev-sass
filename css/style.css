@@ -95,7 +95,7 @@ body .cards-section li p:first-child {
   aspect-ratio: 1/1;
   border-radius: 50%;
   box-shadow: -0.2rem 0 0 0.1rem #03faee;
-  border: 2px solid black;
+  border: 1px solid black;
 }
 body .cards-section li p:last-of-type {
   color: black;

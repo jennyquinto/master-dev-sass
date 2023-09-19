@@ -85,7 +85,7 @@ body {
                 justify-content: center;
                 align-items: center;
                 @include m.shadow;
-                border: 2px solid c.$color-black;
+                border: 1px solid c.$color-black;
             }
 
             p:last-of-type {
